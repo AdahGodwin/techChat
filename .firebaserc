@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "techcee-6ef54": {
+      "hosting": {
+        "techChat": [
+          "techcee-6ef54"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "techcee-6ef54"
+  }
+}

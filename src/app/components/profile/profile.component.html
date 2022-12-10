@@ -1,0 +1,37 @@
+<div class="form-container text-center" *ngIf="user$ | async as user">
+    <h1>User Profile</h1>
+    <div class="profile-image">
+        <img width="160px" height="160px" [src]="user.photoURL ?? 'assets/image-placeholder.jpg'" alt="image" >
+        <button mat-mini-fab (click)="inputField.click()">
+            <mat-icon>edit</mat-icon>
+        </button>
+    </div>
+<input #inputField type="file" hidden (change)="uploadImage($event, user)">
+
+<form class="margin-top" novalidate [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+ <div class="row">
+    <mat-form-field>
+        <input type="text" matInput formControlName="firstName" placeholder="first name">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="text" matInput formControlName="lastName" placeholder="last name">
+    </mat-form-field>
+
+    
+ </div>
+ <div class="row">
+    <mat-form-field>
+        <input type="text" matInput formControlName="displayName" placeholder="display name">
+    </mat-form-field>
+    <mat-form-field>
+        <input type="number" matInput formControlName="phone" placeholder="phone number">
+    </mat-form-field>
+ </div>
+ <mat-form-field>
+    <input type="text" matInput formControlName="address" placeholder="address">
+</mat-form-field>
+<button type="submit" class="margin-top" color="primary" mat-raised-button>Save</button>
+</form>
+
+</div>
